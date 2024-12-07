@@ -70,7 +70,7 @@ interface SecondFormProps {
     
         try {
             console.log('oops part 1');
-            const response = await fetch(`http://localhost:3500/users/${user.id}`, {
+            const response = await fetch(`https://umd-back-part2.onrender.com/users/${user.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

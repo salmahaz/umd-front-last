@@ -37,7 +37,7 @@ function FormPart() {
     };
 
     try {
-        const response = await fetch('http://localhost:3500/users', {
+        const response = await fetch('https://umd-back-part2.onrender.com/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

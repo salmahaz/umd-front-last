@@ -45,7 +45,7 @@ function TableComponent() {
   
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/users');
+      const response = await axios.get('https://umd-back-part2.onrender.com/users');
       const data = response.data;
       setUsers(data);
       setFilteredUsers(data);
@@ -72,7 +72,7 @@ function TableComponent() {
   
   const deleteUser = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:5000/users/${id}`, {
+      const response = await fetch(`https://umd-back-part2.onrender.com/users/${id}`, {
         method: 'DELETE',
       });
 
