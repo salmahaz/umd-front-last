@@ -46,17 +46,17 @@ function TableComponent() {
   const fetchUsers = async () => {
     try {
       const response = await axios.get('https://umd-back-part2.onrender.com/users');
-      console.log(response);
-      const data = response.data;
-      setUsers(data);
-      setFilteredUsers(data);
+      console.log(response.data);  // Log the response data to ensure it's correct
+      setUsers(response.data.users);  // Set the users array
+      setFilteredUsers(response.data.users);  // Update filtered users
       setLoading(false);
     } catch (e) {
       setLoading(false);
-      setError('Failed to fetch users');
-      console.error(e);
+      setError(`Failed to fetch users`);
+      console.error('Error fetching users:', e);
     }
   };
+  
 
   useEffect(() => {
     fetchUsers();
