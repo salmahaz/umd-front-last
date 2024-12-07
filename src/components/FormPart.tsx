@@ -3,12 +3,10 @@
 function FormPart() {
   //const [addUserButton , setAddUserButton] = useState<boolean>(true);
   async function addUser(e: React.FormEvent<HTMLFormElement>) {
-   // setAddUserButton(false);
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
-    
     const data: Record<string, any> = Object.fromEntries(formData);
 
     const user = {
@@ -44,20 +42,23 @@ function FormPart() {
             },
             body: JSON.stringify(user),
         });
+
         const result = await response.json();
         if (!response.ok) {
-           
-            alert(result.msg);
-            
+            console.error("Error:", result);
+            alert(result.msg); // Replace with toast if needed
+        } else {
+            console.log("User added successfully:", result);
+            alert("User added successfully!");
+            // Update UI instead of reloading
+            // setUsers((prev) => [...prev, user]);
         }
-
-        //const result = await response.json();
-        console.log("User added successfully:", result);
-        window.location.reload();
     } catch (error) {
         console.error("Error adding user:", error);
+        alert("An error occurred while adding the user. Please try again.");
     }
 }
+
 
 
     
