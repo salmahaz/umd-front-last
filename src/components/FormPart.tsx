@@ -46,12 +46,13 @@ function FormPart() {
         const result = await response.json();
         if (!response.ok) {
             console.error("Error:", result);
-            // Replace alert with a toast notification
-            alert(result.error || result.msg || "Failed to add user.");
+            
+            alert(result.msg || result.msg || "Failed to add user.");
         } else {
             console.log("User added successfully:", result);
-            alert("User added successfully!"); // Use a toast for better UX
-            // Optionally update UI dynamically here
+            alert("User added successfully!"); 
+            window.location.reload();
+           
         }
     } catch (error) {
         console.error("Error adding user:", error);
