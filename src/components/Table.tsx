@@ -46,6 +46,7 @@ function TableComponent() {
   const fetchUsers = async () => {
     try {
       const response = await axios.get('https://umd-back-part2.onrender.com/users');
+      console.log(response);
       const data = response.data;
       setUsers(data);
       setFilteredUsers(data);
