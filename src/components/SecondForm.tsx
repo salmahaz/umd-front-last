@@ -82,12 +82,13 @@ interface SecondFormProps {
                 console.log('oops part 2');
                 alert(result.msg || result.msg || "Failed to edit user.");
                 
-            }
+            }else{
             console.log('oops part 3');
             //const result = await response.json();
             console.log("User edited successfully:", result);
             alert("User edited successfully!"); 
             window.location.reload();
+            }
           
         } catch (error) {
             console.error("Failed to edit user:", error);
