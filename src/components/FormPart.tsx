@@ -4,9 +4,9 @@ function FormPart() {
   //const [addUserButton , setAddUserButton] = useState<boolean>(true);
   async function addUser(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
     const data: Record<string, any> = Object.fromEntries(formData);
 
     const user = {
@@ -46,18 +46,19 @@ function FormPart() {
         const result = await response.json();
         if (!response.ok) {
             console.error("Error:", result);
-            alert(result.msg); // Replace with toast if needed
+            // Replace alert with a toast notification
+            alert(result.error || result.msg || "Failed to add user.");
         } else {
             console.log("User added successfully:", result);
-            alert("User added successfully!");
-            // Update UI instead of reloading
-            // setUsers((prev) => [...prev, user]);
+            alert("User added successfully!"); // Use a toast for better UX
+            // Optionally update UI dynamically here
         }
     } catch (error) {
         console.error("Error adding user:", error);
         alert("An error occurred while adding the user. Please try again.");
     }
 }
+
 
 
 
