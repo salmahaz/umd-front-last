@@ -80,7 +80,7 @@ interface SecondFormProps {
             const result = await response.json();
             if (!response.ok) {
                 console.log('oops part 2');
-                alert(result.msg || result.msg || "Failed to add user.");
+                alert(result.msg || result.msg || "Failed to edit user.");
                 
             }
             console.log('oops part 3');
