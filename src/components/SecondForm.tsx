@@ -77,19 +77,21 @@ interface SecondFormProps {
                 },
                 body: JSON.stringify(user),
             });
-    
+            const result = await response.json();
             if (!response.ok) {
                 console.log('oops part 2');
-                const errorDetails = await response.json();
-                throw new Error(`Error ${response.status}: ${errorDetails.error || 'Failed to update user'}`);
+                alert(result.msg || result.msg || "Failed to add user.");
                 
             }
             console.log('oops part 3');
-            const result = await response.json();
+            //const result = await response.json();
             console.log("User edited successfully:", result);
-           window.location.reload();
+            alert("User edited successfully!"); 
+            window.location.reload();
+          
         } catch (error) {
             console.error("Failed to edit user:", error);
+            alert("An error occurred while editing the user. Please try again.");
         }
     };
     
